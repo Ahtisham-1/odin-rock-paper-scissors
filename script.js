@@ -1,7 +1,7 @@
-let humanScore = 0;
-let computerScore = 0;
+let totalUserScore = 0;
+let totalComputerScore = 0;
 
-function getComputerChoice() {
+function computersChoice() {
   let randomNum = Math.floor(Math.random() * 3 + 1);
   if (randomNum === 1) {
     return "rock";
@@ -12,37 +12,37 @@ function getComputerChoice() {
   }
 }
 
-function getHumanChoice() {
+function userChoice() {
   return prompt().toLowerCase();
 }
 
 function playGame() {
   for (let i = 0; i < 5; i++) {
-    let humans = getHumanChoice();
-    let computers = getComputerChoice();
-    if (humans === computers) {
+    let userInput = userChoice();
+    let computersInput = computersChoice();
+    if (userInput === computersInput) {
       console.log("its a tie");
-    } else if (humans === "rock" && computers === "scissor") {
-      humanScore++;
+    } else if (userInput === "rock" && computersInput === "scissor") {
+      totalUserScore++;
       console.log("you win");
-    } else if (humans === "paper" && computers === "rock") {
-      humanScore++;
+    } else if (userInput === "paper" && computersInput === "rock") {
+      totalUserScore++;
       console.log("you win");
-    } else if (humans === "scissor" && computers === "paper") {
-      humanScore++;
+    } else if (userInput === "scissor" && computersInput === "paper") {
+      totalUserScore++;
       console.log("you win");
     } else {
-      computerScore++;
+      totalComputerScore++;
       console.log("you loose");
     }
   }
   console.log("FINAL SCORE:");
-  console.log("Human: " + humanScore);
-  console.log("Computer: " + computerScore);
+  console.log("Human: " + totalUserScore);
+  console.log("Computer: " + totalComputerScore);
 
-  if (humanScore > computerScore) {
+  if (totalUserScore > totalComputerScore) {
     console.log("you win the game");
-  } else if (humanScore < computerScore) {
+  } else if (totalUserScore < totalComputerScore) {
     console.log("you loose the game");
   } else {
     console.log("its a grand tie");
